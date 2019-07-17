@@ -1,8 +1,8 @@
 package com.enriquemedina.codingchallenges.hackerrank.algorithms.implementation;
 
 /**
- *Find out Cats and Mouse 
- * https://www.hackerrank.com/challenges/cats-and-a-mouse/problem
+ * Find the most amount of topics a pair can have
+ * https://www.hackerrank.com/challenges/acm-icpc-team/problem
  * @author medin
  *
  */
