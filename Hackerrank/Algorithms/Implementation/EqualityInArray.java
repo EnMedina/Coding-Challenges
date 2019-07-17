@@ -22,5 +22,4 @@ public class EqualityInArray {
         }
         return arr.length - maxOccurrence;
     }
-	
 }
