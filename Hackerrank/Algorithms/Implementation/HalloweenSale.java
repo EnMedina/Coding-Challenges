@@ -6,7 +6,7 @@ package com.enriquemedina.codingchallenges.hackerrank.algorithms.implementation;
  * @author medin
  *
  */
-public class MinDifference {
+public class HalloweenSale {
 
 	public static void main(String[] args) {
 		System.out.println(mySolution(20, 3, 6, 80));
