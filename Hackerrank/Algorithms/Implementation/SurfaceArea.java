@@ -13,7 +13,6 @@ public class CavityMap {
 	}
 	
 		
-	
 	static String mySolution(int[][] A) {
         int surfaceArea = 0;
         for(int y = 0 ; y < A.length ; y++){
