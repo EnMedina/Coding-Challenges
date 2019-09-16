@@ -1,0 +1,29 @@
+/**
+ *  https://leetcode.com/problems/reorder-data-in-log-files/
+ *  Reorder data logs according to content
+ *  @Author EnMedina
+ */
+
+class Solution {
+    public String[] reorderLogFiles(String[] logs) {
+      // Get all the numeric logs to the back in the right order
+      int indNum = logs.length - 1;
+      int indLog = logs.length - 1;
+      while( indLog >= 0){
+        while( indLog >= 0 && !Character.isDigit( logs[indLog].charAt( logs[indLog].length() - 1 )  ) ) indLog--;
+        if(indLog >= 0){
+          String tempLog = logs[indNum];
+          logs[indNum] = logs[indLog];
+          logs[indLog] = tempLog;
+          indNum--;
+        }
+      }
+      
+      // Get identifier length
+      
+      
+
+      
+      return logs;
+    }
+}
