@@ -1,3 +1,4 @@
+
 /**
  * https://leetcode.com/problems/interval-list-intersections/
  * Return the list of overlapping intervals
@@ -6,35 +7,29 @@
 
 class Solution {
   public int[][] intervalIntersection(int[][] A, int[][] B) {
-      int currAIndex = 0 ; 
-      int currBIndex = 0 ;
-      List<List<Integer>> listIntersection = new ArrayList<>();
-      while( currAIndex < A.length && currBIndex < B.length ) {
-        while(B[currBIndex][0] > A[currAIndex][1] ) {
-          currAIndex++;
-          if( currAIndex >= A.length )break;
-        }
-        
-        if( currAIndex >= A.length )break;
-        
-        while( currBIndex < B.length && A[currAIndex][0] > B[currBIndex][1] ) {
-          currBIndex++;
-        }
-        if( currBIndex >= B.length )break;
-        if( A[currAIndex][1] < B[currBIndex][0]  ) {
-          List<Integer> listTemp = new ArrayList<>();
-          listTemp.add(Math.max(A[currAIndex][0], B[currBIndex][0]));
-          listTemp.add(Math.min(A[currAIndex][1], B[currBIndex][1]));
-          listTemp.add(A[currAIndex][1]);
-          listIntersection.add(listTemp);
-        }
-          if( A[currAIndex][1] > B[currBIndex][1]) {
-            currBIndex++;
-          } else {
-            currAIndex++;
-          }
-      }
-      return listToArray(listIntersection);
+     int indexA = 0;
+     int indexB = 0;
+     List<List<Integer>> listIntersection = new ArrayList<>();
+     
+     while( indexA < A.length && indexB < B.length ) {
+       int minStart = Math.max( A[indexA][0], B[indexB][0] );
+       int maxEnd   = Math.min( A[indexA][1], B[indexB][1] );
+       
+       if( minStart <= maxEnd ) {
+         List<Integer> listTemp = new ArrayList<>();
+         listTemp.add(minStart);
+         listTemp.add(maxEnd);
+         listIntersection.add(listTemp);
+       }
+       
+       if( A[indexA][1] < B[indexB][1] ) {
+         indexA++;
+       }else {
+         indexB++;
+       }
+       
+     }
+     return listToArray(listIntersection);
   }
   
   private int[][] listToArray( List<List<Integer>> list){
