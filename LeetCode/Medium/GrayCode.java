@@ -47,3 +47,40 @@ class Solution {
   }
 
 }
+
+
+//Better Solution
+//
+[200~/**
+          * https://leetcode.com/problems/gray-code/
+          *  * Count all the numbers with unique digits 
+          *   * @Author EnMedina
+          *    * 
+          *     * Backtracking
+          *      */
+
+/**
+ * https://leetcode.com/problems/gray-code/
+ * Count all the numbers with unique digits 
+ * @Author EnMedina
+ * 
+ * Backtracking
+ */
+
+
+class Solution {
+  public List<Integer> grayCode(int n) {
+    List<Integer> currList = new LinkedList<>();
+    currList.add(0);
+    for( int i = 0 ; i < n ; i++ ) {
+      int increase = (int)(Math.pow(2, i));
+      int currLen  = currList.size();
+      for( int j = currLen-1 ; j >= 0 ; j-- ) {
+        currList.add(currList.get(j)+increase);
+      }
+    }
+    
+    return currList;
+  }
+ 
+}
