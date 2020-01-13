@@ -23,4 +23,16 @@ class Solution {
         return maxProfit;
 
     }
+    //Taking a dp approach
+     public int maxProfitDP(int[] prices) {
+        int[] dp = new int[prices.length];
+        if( prices.length < 2 ) return 0;
+        dp[0] = 0;
+       int minVal = prices[0];
+       for( int i = 1 ; i < dp.length ; i++ ){
+           dp[i] = Math.max(dp[i-1], prices[i] - minVal);
+           if( prices[i] < minVal ) minVal = prices[i];
+       }
+        return dp[prices.length-1];
+    }
 }
